@@ -1,0 +1,118 @@
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+
+#toggleBar {
+  position: absolute;
+  right: 25px; 
+  top: 0px; 
+  width: 150px;
+  
+
+  height: 0px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  transition: 1s height ease-in;
+
+}
+
+#toggleBar.active{
+  padding: 40px 0px 0px 0px;
+  height: auto;
+}
+
+
+
+#toggleContainer {
+  display: flex; 
+  align-items: center; 
+  padding: 10px;
+  gap: 5px;
+}
+
+#toggleContainer p {
+ font-size: 17px;
+}
+
+
+
+#Icons{
+  width: 10px;
+  height: 10px;
+  
+}
+
+
+
+
+
+#toggleIcons {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#toggleIcons i {
+  color: gray;
+  width: 30px; 
+  height: 30px; 
+}
+
+
+
+#infeText{
+  background-color: #ffffff;
+  width: 100%;
+  height: 30%;
+  border-radius: 10px;
+  padding: 7px;
+  border: 2px solid rgba(224, 224, 224, 1);
+}
+
+#profile {
+  display: flex;
+  gap: 5px; /* Reducir el espacio entre los elementos */
+  color: #4F4F4F;
+  cursor: pointer;
+}
+
+#profile a{
+ text-decoration: none;
+ color: #4F4F4F;
+}
+
+
+#logout {
+  text-decoration: none;
+  display: flex;
+  gap: 5px; 
+  color: #ff3838;
+  
+}
+
+#logout a {
+  text-decoration: none;
+  color: #ff3838;
+  cursor: pointer;
+ 
+}
+
+
+
+
+
+
+
+
+
+
