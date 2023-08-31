@@ -55,16 +55,15 @@
                     </form>
                 </div>
 
-
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
+                    <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
                     <form action="/views/Admin/alumno_crud.php" method="post">
                         <button class="text-xl">Alumnos</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
+                    <span class="cursor-pointer"><i class="fa-solid fa-laptop-code mr-2"></i></span>
                     <form action="/views/Admin/clases_crud.php" method="post">
                         <button class="text-xl">Clases</button>
                     </form>
@@ -149,40 +148,67 @@
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <th class="text-sm text-gray-500">
-                                    Predro Solis
-                                </th>
-                                <th class="text-sm text-gray-500">
-                                    xxxxsasasasasasasasasasasasasasasasa
-                                </th>
+                            <?php
+                            require_once("../handle_db/connection.php");
+
+                            $query = "SELECT * FROM usuarios_datos";
+                            $stmt = $pdo->query($query);
+
+                            if ($stmt) {
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
+                                    <tr>
+                                        <th class="text-sm text-gray-500">
+                                        <?php echo $row["id_ud"] ?>
+                                        </th>
+                                        <th class="text-sm text-gray-500">
+                                            xxxxsasasasasasasasasasasasasasasasa
+                                        </th>
 
 
-                                <th>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-medium py-0.5 px-2 rounded text-xs">
-                                        inactivo
-                                    </button>
-                                </th>
-                                <th>
-                                    <button class="bg-green-500 hover:bg-green-700 text-white font-medium py-0.5 px-2 rounded text-xs">
-                                        Activo
-                                    </button>
-                                </th>
+                                        <th>
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-medium py-0.5 px-2 rounded text-xs">
+                                                inactivo
+                                            </button>
+                                        </th>
+                                        <th>
+                                            <button class="bg-green-500 hover:bg-green-700 text-white font-medium py-0.5 px-2 rounded text-xs">
+                                                Activo
+                                            </button>
+                                        </th>
 
-                                <th>
-                                    <a href="">
-                                        <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
-                                            <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
-                                        </button>
-                                        <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
-                                            <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
-                                        </button>
-                                    </a>
-                                </th>
+                                        <th>
+                                            <a href="">
+                                                <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
+                                                    <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
+                                                </button>
+                                                <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
+                                                    <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
+                                                </button>
+                                            </a>
+                                        </th>
 
-                            </tr>
+                                    </tr>
+                                 
+                            <?php
 
-                            
+                                }
+                            } else {
+                                echo "Error en la consulta.";
+                            }
+                            ?>
+
+
+                            // if ($result) {
+                            // $data = $result->fetchAll(PDO::FETCH_ASSOC);
+                            // // var_dump($data);
+                            // } else {
+                            // echo "Error en la consulta.";
+                            // }
+                            // ?>
+
+
+
                         </tbody>
                     </table>
                 </div>
