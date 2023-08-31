@@ -176,19 +176,19 @@
                                         </th>
 
                                         <th>
-                                        <a href="">
-                                            <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
+                                            <a href="/views_Admin/edit_Permisos.php?id=<?= $row['id_ud'] ?>">
+                                                <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>
                                             </a>
 
-                                            <a href="../handle_db/delete_permisos.php?id=<?=$row['id_ud'] ?>">
+                                            <a href="../handle_db/delete_permisos.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
                                                 </button>
                                             </a>
 
-                                          
+
                                         </th>
 
                                     </tr>
