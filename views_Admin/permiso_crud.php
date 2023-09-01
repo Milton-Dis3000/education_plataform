@@ -146,7 +146,7 @@
                         <tbody>
 
                             <?php
-                            require_once("../handle_db/connection.php");
+                            require_once($_SERVER["DOCUMENT_ROOT"]."/handle_db/connection.php");
 
                             $query = "SELECT * FROM usuarios_datos 
                             inner join roles 

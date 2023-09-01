@@ -116,9 +116,6 @@
                 </ul>
             </nav>
 
-
-
-
             <div class="pl-4  w-full h-auto flex ">
                 <div class="pr-4flex-grow flex items-center">
 
@@ -140,73 +137,85 @@
                         <thead>
                             <tr>
                                 <th class="py-2">#</th>
-                                <th class="py-2">Email/Usuario</th>
-                                <th class="py-2">Permiso</th>
-                                <th class="py-2">Estado</th>
+                                <th class="py-2">Nombre</th>
+                                <th class="py-2">Apellido</th>
+                                <th class="py-2">Email</th>
+                                <th class="py-2">Dirección</th>
+                                <th class="py-2">Fec.Nacimiento</th>
+                                <th class="py-2">Clase Asignada</th>
                                 <th class="py-2">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php
-                            require_once("../handle_db/connection.php");
 
-                            $query = "SELECT * FROM usuarios_datos";
+                            require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
+
+                            $query = "SELECT * FROM usuarios_datos 
+                            INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
+                            WHERE usuarios_datos.rol_id = 2";
                             $stmt = $pdo->query($query);
 
+
                             if ($stmt) {
+                                $rowNumber = 1; // Inicializar el contador
+
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                                     <tr>
                                         <th class="text-sm text-gray-500">
-                                        <?php echo $row["id_ud"] ?>
+                                            <?= $rowNumber ?>
                                         </th>
                                         <th class="text-sm text-gray-500">
-                                            xxxxsasasasasasasasasasasasasasasasa
+                                            <?= $row["Nombre"] ?>
                                         </th>
 
-
-                                        <th>
-                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-medium py-0.5 px-2 rounded text-xs">
-                                                inactivo
-                                            </button>
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Apellido"] ?>
                                         </th>
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Correo"] ?>
+                                        </th>
+
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Direccion"] ?>
+                                        </th>
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Fecha_Nacimiento"] ?>
+                                        </th>
+
                                         <th>
                                             <button class="bg-green-500 hover:bg-green-700 text-white font-medium py-0.5 px-2 rounded text-xs">
-                                                Activo
+                                                <!-- <?= $row["Fecha_Nacimiento"] ?> -->
                                             </button>
                                         </th>
 
+
                                         <th>
-                                            <a href="">
+                                            <a href="/views_Admin/edit_Permisos.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>
+                                            </a>
+
+                                            <a href="../handle_db/delete_permisos.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
                                                 </button>
                                             </a>
+
+
                                         </th>
 
                                     </tr>
-                                 
                             <?php
-
+                                    $rowNumber++; // Incrementar el contador
                                 }
                             } else {
                                 echo "Error en la consulta.";
                             }
                             ?>
-
-
-                            // if ($result) {
-                            // $data = $result->fetchAll(PDO::FETCH_ASSOC);
-                            // // var_dump($data);
-                            // } else {
-                            // echo "Error en la consulta.";
-                            // }
-                            // ?>
-
 
 
                         </tbody>
@@ -222,8 +231,6 @@
 
         </section>
     </main>
-
-
 
 
 </body>

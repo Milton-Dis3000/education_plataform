@@ -45,6 +45,11 @@
         </section>
 
         <section class="w-full md:w-4/5 h-auto bg-[#F5F6FA] text-[#ADADAD] ">
+            <!-- <?php
+            require_once($_SERVER["DOCUMENT_ROOT"]."/handle_db/connection.php"); 
+            var_dump($_SERVER);
+            ?>  -->
+
 
             <div class="p-4 mb-4 bg-[#ffffff] w-full h-auto flex md:shadow-sm">
                 <div class="pb-2 flex-grow flex items-center">

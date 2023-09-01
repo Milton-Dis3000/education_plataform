@@ -32,14 +32,14 @@
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-user-gear mr-2"></i></span>
-                    <form action="/views/Admin/permiso_crud.php" method="post">
+                    <form action="./permiso_crud.php" method="post">
                         <button type="submit" class="text-xl">Permisos</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
-                    <form action="/views/Admin/maestro_crud.php" method="post">
+                    <form action="./maestro_crud.php" method="post">
                         <button class="text-xl">Maestros</button>
                     </form>
                 </div>
@@ -47,14 +47,14 @@
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
-                    <form action="/views/Admin/alumno_crud.php" method="post">
+                    <form action="/views_Admin/permiso_crud.php" method="post">
                         <button class="text-xl">Alumnos</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
-                    <form action="/views/Admin/clases_crud.php" method="post">
+                    <form action="/views_Admin/permiso_crud.php" method="post">
                         <button class="text-xl">Clases</button>
                     </form>
                 </div>

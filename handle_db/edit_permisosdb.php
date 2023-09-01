@@ -1,7 +1,6 @@
 <?php
 // var_dump($_POST);
 
-
 require_once("../handle_db/connection.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
