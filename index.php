@@ -17,7 +17,7 @@
         <div class="flex flex-col items-center">
             <img src="img/login.png" alt="" class="self-center w-40 h-40 mb-4">
 
-            <form action="?action=login" method="post" class="max-w-sm mx-auto my-4 p-4 bg-gray-100 shadow-md rounded">
+            <form action="./handle_db/LoginController.php" method="post" class="max-w-sm mx-auto my-4 p-4 bg-gray-100 shadow-md rounded">
                 <label for="correo" class="block">Correo</label>
                 <input type="email" id="correo" name="correo" class="w-full border border-gray-300 rounded px-3 py-2 mb-2">
                 <label for="pass" class="block">Contraseña</label>
@@ -34,7 +34,7 @@
             <h2 class="text-sm">Alumno <br> </h2>
             <h2 class="text-sm">User:alumno@alumno <br> pass:alumno</h2>
         </div>
-      
+
     </main>
 
 

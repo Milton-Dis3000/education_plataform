@@ -128,12 +128,18 @@
                     <a href="/views/Admin/permiso_crud.php" class="underline hover:no-underline">Permisos</a>
                 </div>
             </div>
+
+
             <div class="p-3 flex justify-between items-center">
                 <h2 class="text-lg font-semibold">Información de Maestros</h2>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
-                    Agregar Maestro
-                </button>
+                <a href="/views_Admin/register_Maestros.php?id=">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
+                        Agregar Maestro
+                    </button>
+                </a>
             </div>
+
+
 
             <!-- TABLE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
