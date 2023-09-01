@@ -128,6 +128,12 @@
                     <a href="/views/Admin/permiso_crud.php" class="underline hover:no-underline">Permisos</a>
                 </div>
             </div>
+            <div class="p-3 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Información de Maestros</h2>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
+                    Agregar Maestro
+                </button>
+            </div>
 
             <!-- TABLE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
@@ -154,6 +160,7 @@
 
                             $query = "SELECT * FROM usuarios_datos 
                             INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
+                            INNER JOIN materias ON usuarios_datos.materia_id = materias.id_materia
                             WHERE usuarios_datos.rol_id = 2";
                             $stmt = $pdo->query($query);
 
@@ -162,6 +169,7 @@
                                 $rowNumber = 1; // Inicializar el contador
 
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    // var_dump($row);
                             ?>
                                     <tr>
                                         <th class="text-sm text-gray-500">
@@ -186,14 +194,12 @@
                                         </th>
 
                                         <th>
-                                            <button class="bg-green-500 hover:bg-green-700 text-white font-medium py-0.5 px-2 rounded text-xs">
-                                                <!-- <?= $row["Fecha_Nacimiento"] ?> -->
-                                            </button>
+                                            <?= $row["nombre_materia"] ?>
                                         </th>
 
 
                                         <th>
-                                            <a href="/views_Admin/edit_Permisos.php?id=<?= $row['id_ud'] ?>">
+                                            <a href="/views_Admin/edit_Maestros.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>

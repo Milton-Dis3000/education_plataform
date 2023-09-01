@@ -30,7 +30,9 @@
             ?>
                 <div class="mb-3 p-2">
                     <label for="exampleInputEmail1" class="form-label">Email del Usuario</label>
-                    <input type="email" class="form-control p-2" name="Email" value="<?= $row["Correo"] ?>">
+                    <input type="email" class="form-control p-2" name="Email" value="<?= $row["Correo"] ?>" require />
+
+
                 </div>
             <?php
             }
@@ -38,8 +40,8 @@
 
             <input type="hidden" name="id_ud" value="<?= $_GET["id"] ?>">
 
-            <select class="form-select mb-3 p-2" aria-label="Default select example" name="rol">
-                <option selected disabled>Seleccionar Rol</option>
+            <select class="form-select mb-3 p-2" aria-label="Default select example" name="rol" required>
+                <option value="" selected disabled>Seleccionar Rol</option>
                 <?php
                 $query = "SELECT * FROM roles";
                 $stmt = $pdo->query($query);
