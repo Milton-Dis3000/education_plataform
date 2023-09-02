@@ -38,27 +38,32 @@
             <div class="p-4 mb-4 flex flex-col ">
                 <h2 class="text-lg">MENU ADMINISTRACIÓN</h2>
 
-                <div class="flex flex-row items-center border-b border-gray-600 pb-2 pt-3 cursor-pointer hover:bg-gray-100">
+                <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-user-gear mr-2"></i></span>
-
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="/views_Admin/permiso_crud.php" method="post">
                         <button type="submit" class="text-xl">Permisos</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
-                    <button class="text-xl">Maestros</button>
+                    <form action="/views_Admin/maestro_crud.php" method="post">
+                        <button class="text-xl">Maestros</button>
+                    </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
-                    <button class="text-xl">Alumnos</button>
+                    <form action="/views_Admin/alumno_crud.php" method="post">
+                        <button class="text-xl">Alumnos</button>
+                    </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-laptop-code mr-2"></i></span>
-                    <button class="text-xl">Clases</button>
+                    <form action="/views_Admin/clases_crud.php" method="post">
+                        <button class="text-xl">Clases</button>
+                    </form>
                 </div>
 
             </div>

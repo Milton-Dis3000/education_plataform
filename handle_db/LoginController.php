@@ -28,10 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_
                 header("Location: ../views_Admin/admin.php");
                 break;
             case 2: // Maestro
-                header("Location: maestro_home.php");
+                header("Location: ../views_Admin/Maestros/maestro.php");
                 break;
             case 3: // Alumno
-                header("Location: alumno_home.php");
+                header("Location: ../views_Admin/Alumnos/alumno.php");
                 break;
             default:
                 // Manejar un rol no reconocido o mostrar un mensaje de error.
@@ -40,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_
         exit(); // Importante: detener la ejecución del script
     } else {
         // Credenciales inválidas, mostrar un mensaje de error o redirigir de regreso al formulario de inicio de sesión
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }
 } else {
     // Si se intenta acceder a este archivo directamente sin enviar el formulario, redirigir al formulario de inicio de sesión
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }

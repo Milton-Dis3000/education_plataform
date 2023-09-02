@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/css/style.css">
 
 
-    <title>Permisos</title>
+    <title>Maestros</title>
 
 </head>
 
@@ -43,28 +43,28 @@
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-user-gear mr-2"></i></span>
-                    <form action="/views/Admin/permiso_crud.php" method="post">
+                    <form action="/views_Admin/permiso_crud.php" method="post">
                         <button type="submit" class="text-xl">Permisos</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
-                    <form action="/views/Admin/maestro_crud.php" method="post">
+                    <form action="/views_Admin/maestro_crud.php" method="post">
                         <button class="text-xl">Maestros</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
-                    <form action="/views/Admin/alumno_crud.php" method="post">
+                    <form action="/views_Admin/alumno_crud.php" method="post">
                         <button class="text-xl">Alumnos</button>
                     </form>
                 </div>
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-laptop-code mr-2"></i></span>
-                    <form action="/views/Admin/clases_crud.php" method="post">
+                    <form action="/views_Admin/clases_crud.php" method="post">
                         <button class="text-xl">Clases</button>
                     </form>
                 </div>
@@ -78,7 +78,7 @@
             <nav>
                 <div id="isologotipo" class="">
                     <span class="pl-4 pr-4 mr-2 cursor-pointer"><i class="fa-solid fa-bars"></i></span>
-                    <a href="src\Views\Administrador\permisos_nav.php">Home</a>
+                    <a href="/views_Admin/admin.php">Home</a>
                 </div>
                 <ul>
 
@@ -124,8 +124,8 @@
                 </div>
 
                 <div class="pl-4 pr-4 ml-auto">
-                    <a href="/views/Admin/admin.php" class="underline hover:no-underline">Home</a>
-                    <a href="/views/Admin/permiso_crud.php" class="underline hover:no-underline">Permisos</a>
+                    <a href="/views_Admin/admin.php" class="underline hover:no-underline">Home</a>
+                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Maestros</a>
                 </div>
             </div>
 
