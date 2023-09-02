@@ -12,8 +12,11 @@
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <script src="/Js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
 
-    <title>Clases</title>
+
+    <title>Maestros</title>
 
 </head>
 
@@ -71,40 +74,72 @@
 
         <section class="w-full md:w-4/5 h-auto bg-[#F5F6FA] text-[#ADADAD] ">
 
-            <div class="p-4 mb-4 bg-[#ffffff] w-full h-auto flex md:shadow-sm">
-                <div class="pb-2 flex-grow flex items-center">
-                    <span class="mr-2 cursor-pointer"><i class="fa-solid fa-bars"></i></span>
-                    <a href="src\Views\Administrador\permisos_nav.php">Home</a>
+            <!-- toglleBar -->
+            <nav>
+                <div id="isologotipo" class="">
+                    <span class="pl-4 pr-4 mr-2 cursor-pointer"><i class="fa-solid fa-bars"></i></span>
+                    <a href="/views_Admin/admin.php">Home</a>
+                </div>
+                <ul>
+
+                    <div id="toggleContainer">
+                        <p>Administrador</p>
+
+                        <div id="toggleIcons">
+
+                            <i class="fa-solid fa-sort-down"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div id="toggleBar">
+
+                        <div id="infeText">
+
+                            <div id="profile">
+                                <i class="fa-solid fa-circle-user"></i>
+
+                                <a href="profile.php">My profile</a>
+                            </div>
+
+                            <hr>
+                            <div id="logout">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                                <a href="../index.php">Logout</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </ul>
+            </nav>
+
+            <div class="pl-4  w-full h-auto flex ">
+                <div class="pr-4flex-grow flex items-center">
+
+                    <button class="text-[#353A40] text-2xl cursor-pointer">Dashboard</button>
+
                 </div>
 
-                <div class="pb-2 ml-auto">
-                    <button class="text-lg cursor-pointer">Administrador v</button>
+                <div class="pl-4 pr-4 ml-auto">
+                    <a href="/views_Admin/admin.php" class="underline hover:no-underline">Home</a>
+                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Clase</a>
                 </div>
             </div>
 
 
-            <div class="p-4 mb-4  w-full h-auto flex ">
-                <div class="pb-2 flex-grow flex items-center">
-
-                    <button class="text-[#353A40] text-2xl cursor-pointer">Lista de Clases</button>
-
-                </div>
-
-
-                <div class="pb-2 ml-auto">
-                    <a href="src\Views\Administrador\permisos_nav.php">Home</a>
-                    <button>Clases</button>
-
-                </div>
+            <div class="p-3 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Información de Clase</h2>
+                <a href="/views_Admin/register_Maestros.php?id=">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
+                        Agregar Clase
+                    </button>
+                </a>
             </div>
 
 
-            <div class="p-4 flex justify-between items-center">
-                <h2 class="text-lg font-semibold">Información de Clases</h2>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-3 rounded">
-                    Agregar Clases
-                </button>
-            </div>
 
             <!-- TABLE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
@@ -113,46 +148,70 @@
                     <table id="example" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Email/Usuario</th>
-                                <th>Permiso</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
+                                <th class="py-2">#</th>
+                                <th class="py-2">Clase</th>
+                                <th class="py-2">Maestro</th>
+                                <th class="py-2">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <th class="text-sm">
-                                    xxxxxxx
-                                </th>
-                                <th class="text-sm">
-                                    xxxx
-                                </th>
-                                <th>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs">
+                            <?php
 
-                                    </button>
-                                </th>
-                                <th>
-                                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded text-xs">
-                                        Activo
-                                    </button>
-                                </th>
+                            require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
 
-                                <th>
-                                    <a href="">
-                                        <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
-                                            <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600 text-lg"></i>
-                                        </button>
-                                        <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
-                                            <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600 text-lg"></i>
-                                        </button>
-                                    </a>
-                                </th>
+                            $query = "SELECT * FROM usuarios_datos 
+                            INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
+                            INNER JOIN materias ON usuarios_datos.materia_id = materias.id_materia
+                            WHERE usuarios_datos.rol_id = 2";
+                            $stmt = $pdo->query($query);
 
 
-                            </tr>
+                            if ($stmt) {
+                                $rowNumber = 1; // Inicializar el contador
+
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    // var_dump($row);
+                            ?>
+                                    <tr>
+                                        <th class="text-sm text-gray-500">
+                                            <?= $rowNumber ?>
+                                        </th>
+                                        
+                                        <th>
+                                            <?= $row["nombre_materia"] ?>
+                                        </th>
+
+
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Nombre"] ?>
+                                        </th>
+
+
+                                        <th>
+                                            <a href="/views_Admin/edit_Maestros.php?id=<?= $row['id_ud'] ?>">
+                                                <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
+                                                    <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
+                                                </button>
+                                            </a>
+
+                                            <a href="../handle_db/delete_maestros.php?id=<?= $row['id_ud'] ?>">
+                                                <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
+                                                    <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
+                                                </button>
+                                            </a>
+
+
+                                        </th>
+
+                                    </tr>
+                            <?php
+                                    $rowNumber++; // Incrementar el contador
+                                }
+                            } else {
+                                echo "Error en la consulta.";
+                            }
+                            ?>
 
 
                         </tbody>
@@ -168,8 +227,6 @@
 
         </section>
     </main>
-
-
 
 
 </body>

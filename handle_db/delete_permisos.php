@@ -5,16 +5,7 @@ if(isset($_GET["id"])){
     $id = $_GET["id"];
 
     require_once("connection.php");
-    $query = "DELETE FROM usuarios_datos WHERE id_ud = $id";
+    $query = "delete from usuarios_datos where id_ud=$id";
     $pdo->query($query);
-
-    if ($rol_id == 2) {
-        header("Location: ../views_Admin/maestro_crud.php");
-    } else {
-        header("Location: ../views_Admin/permiso_crud.php");
-    }
+    header("Location: ../views_Admin/permiso_crud.php");
 }
-
-$rol_id = 2;
-header("Location: ../views_Admin/maestro_crud.php");
-?>

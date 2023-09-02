@@ -211,7 +211,7 @@
                                                 </button>
                                             </a>
 
-                                            <a href="../handle_db/delete_permisos.php?id=<?= $row['id_ud'] ?>">
+                                            <a href="../handle_db/delete_maestros.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
                                                 </button>
