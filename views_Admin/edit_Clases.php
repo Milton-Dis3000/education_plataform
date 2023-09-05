@@ -22,60 +22,38 @@
             <?php
             require_once("../handle_db/connection.php");
 
-            $query = "SELECT * FROM usuarios_datos WHERE id_ud = :id";
+            $query = "SELECT * FROM materias WHERE id_materia = :id";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(":id", $_GET["id"]);
             $stmt->execute();
-
             if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
                 <div class="p-1">
-                    <label for="exampleInputEmail1" class="form-label">Email del Usuario</label>
-                    <input type="email" class="form-control p-1" name="Email" value="<?= $row["Correo"] ?>">
+                    <label for="nombre_materia" class="form-label">Nombre de la Materia</label>
+                    <input type="text" id="nombre_materia" class="form-control p-2" name="nombre_materia" value="<?= $row["nombre_materia"] ?>">
                 </div>
-
-                <div class="p-1">
-                    <label for="exampleInputEmail1" class="form-label">Nombre(s)</label>
-                    <input type="Nombre" class="form-control p-1" name="Nombre" value="<?= $row["Nombre"] ?>">
-                </div>
-
-                <div class="p-1">
-                    <label for="exampleInputEmail1" class="form-label">Apellidos(s)</label>
-                    <input type="Apellido" class="form-control p-1" name="Apellido" value="<?= $row["Apellido"] ?>">
-                </div>
-
-                <div class="p-2">
-                    <label for="exampleInputEmail1" class="form-label">Dirección</label>
-                    <input type="Direccion" class="form-control p-1" name="Direccion" value="<?= $row["Direccion"] ?>">
-                </div>
-
-                <div class="p-1">
-                    <label for="exampleInputEmail1" class="form-label">Fecha de Nacimiento</label>
-                    <input type="Fecha_Nacimiento" class="form-control p-2" name="Fecha_Nacimiento" value="<?= $row["Fecha_Nacimiento"] ?>">
-                </div>
-
             <?php
             }
             ?>
+            <input type="hidden" name="id_materia" value="<?= $_GET["id"] ?>">
 
-            <input type="hidden" name="id_ud" value="<?= $_GET["id"] ?>">
-
-            <select class="form-select mb-3 p-1" aria-label="Default select example" name="materias" required>
-                <option value="" selected disabled>Clase Asignada</option>
+            <label for="maestros" class="form-label">Maestro Asignado</label>
+            <select class="form-select mb-3 p-1" aria-label="Default select example" name="maestros" required>
+                <option value="" disabled>Selecciona un Maestro</option>
                 <?php
-                $query = "SELECT * FROM materias";
+                $query = "SELECT * FROM usuarios_datos WHERE rol_id = 2";
                 $stmt = $pdo->query($query);
-                while ($materia = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $selected = ($row["nombre_materia"] == $materia["nombre_materia"]) ? "selected" : "";
+                while ($maestro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    // Verificar si el maestro es el asignado a la materia
+                    $selected = ($row["nombre_maestro"] == $maestro["Nombre"]) ? "selected" : "";
                 ?>
-                    <option value="<?= $materia["id_materia"] ?>" <?= $selected ?>><?= $materia["nombre_materia"] ?></option>
+                    <option value="<?= $maestro["id_ud"] ?>" <?= $selected ?>><?= $maestro["Nombre"] ?></option>
                 <?php
                 }
                 ?>
             </select>
-
             <div class="flex justify-end pt-3">
-                <button type="button" class="btn btn-gray p-2 mr-2">Close</button>
+                <button type="button" class="btn btn-gray p-2 mr-2" onclick="cerrarFormulario()">Cerrar</button>
                 <button type="submit" class="btn btn-primary p-2">Guardar Cambios</button>
             </div>
         </form>

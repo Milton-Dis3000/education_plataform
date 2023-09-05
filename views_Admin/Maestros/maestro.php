@@ -30,27 +30,20 @@
             <div class="p-4 mb-4 flex flex-col ">
                 <h2 class="text-lg">MENU MAESTRO</h2>
 
-                <div class="flex flex-row items-center border-b border-gray-600 pb-2 pt-3 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-user-gear mr-2"></i></span>
-
-
-                    <div class="flex flex-row items-center cursor-pointer hover:bg-gray-100">
-                        <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
-                        <button class="text-xl">Alumnos</button>
-                    </div>
-
-
-                </div>
+                <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
+                <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
+                <form action="/views_Admin/alumno_crud.php" method="post">
+                    <button class="text-xl">Alumnos</button>
+                </form>
             </div>
+
+
+            </div>
+       
         </section>
 
         <section class="w-full md:w-4/5 h-auto bg-[#F5F6FA] text-[#ADADAD] ">
-            <!-- <?php
-            require_once($_SERVER["DOCUMENT_ROOT"]."/handle_db/connection.php"); 
-            var_dump($_SERVER);
-            ?>  -->
-
-
+          
             <div class="p-4 mb-4 bg-[#ffffff] w-full h-auto flex md:shadow-sm">
                 <div class="pb-2 flex-grow flex items-center">
                     <span class="mr-2 cursor-pointer"><i class="fa-solid fa-bars"></i></span>

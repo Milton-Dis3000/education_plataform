@@ -1,6 +1,7 @@
 <?php
 session_start(); // Iniciar la sesión
 
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_POST["pass"])) {
     $correo = $_POST["correo"];
     $pass = $_POST["pass"];
@@ -37,14 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_
                 // Manejar un rol no reconocido o mostrar un mensaje de error.
                 break;
         }
-        exit(); // Importante: detener la ejecución del script
+        exit(); 
     } else {
-        // Credenciales inválidas, mostrar un mensaje de error o redirigir de regreso al formulario de inicio de sesión
         header("Location: ../index.php");
         exit();
     }
 } else {
-    // Si se intenta acceder a este archivo directamente sin enviar el formulario, redirigir al formulario de inicio de sesión
     header("Location: ../index.php");
     exit();
 }

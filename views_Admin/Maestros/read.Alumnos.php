@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/css/style.css">
 
 
-    <title>Clases</title>
+    <title>Maestros</title>
 
 </head>
 
@@ -33,27 +33,15 @@
 
             <div class="p-4 mb-4">
                 <div class="flex flex-col border-b border-gray-600 pb-2">
-                    <h2 class="text-xl">Admin</h2>
-                    <h2 class="text-xl">Administrador</h2>
+                    <h2 class="text-xl">Maestro</h2>
+                    <h2 class="text-xl">Maestro</h2>
                 </div>
             </div>
 
             <div class="p-4 mb-4 flex flex-col ">
-                <h2 class="text-lg">MENU ADMINISTRACIÓN</h2>
+                <h2 class="text-lg">MENU MAESTROS</h2>
 
-                <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-user-gear mr-2"></i></span>
-                    <form action="/views_Admin/permiso_crud.php" method="post">
-                        <button type="submit" class="text-xl">Permisos</button>
-                    </form>
-                </div>
-
-                <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-chalkboard-user mr-2"></i></span>
-                    <form action="/views_Admin/maestro_crud.php" method="post">
-                        <button class="text-xl">Maestros</button>
-                    </form>
-                </div>
+         
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
@@ -62,12 +50,7 @@
                     </form>
                 </div>
 
-                <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-laptop-code mr-2"></i></span>
-                    <form action="/views_Admin/clases_crud.php" method="post">
-                        <button class="text-xl">Clases</button>
-                    </form>
-                </div>
+              
 
             </div>
         </section>
@@ -125,16 +108,16 @@
 
                 <div class="pl-4 pr-4 ml-auto">
                     <a href="/views_Admin/admin.php" class="underline hover:no-underline">Home</a>
-                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Clase</a>
+                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Maestros</a>
                 </div>
             </div>
 
 
             <div class="p-3 flex justify-between items-center">
-                <h2 class="text-lg font-semibold">Información de Clase</h2>
+                <h2 class="text-lg font-semibold">Información de Maestros</h2>
                 <a href="/views_Admin/register_Maestros.php?id=">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
-                        Agregar Clase
+                        Agregar Maestro
                     </button>
                 </a>
             </div>
@@ -149,8 +132,9 @@
                         <thead>
                             <tr>
                                 <th class="py-2">#</th>
-                                <th class="py-2">Clase</th>
-                                <th class="py-2">Maestro</th>
+                                <th class="py-2">Nombre del Alumno</th>
+                                <th class="py-2">Calificación</th>
+                                <th class="py-2">Mensaje</th>
                                 <th class="py-2">Acciones</th>
                             </tr>
                         </thead>
@@ -159,9 +143,6 @@
                             <?php
 
                             require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
-
-                            // SELECT * FROM maestro_materia
-                            // INNER JOIN materias ON maestro_materia.maestro_id  = materias.id_materia 
 
                             $query = "SELECT * FROM usuarios_datos 
                             INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
@@ -180,26 +161,28 @@
                                         <th class="text-sm text-gray-500">
                                             <?= $rowNumber ?>
                                         </th>
-                                        
-                                        <th>
-                                            <?= $row["nombre_materia"] ?>
-                                        </th>
-
-
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Nombre"] ?>
                                         </th>
 
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Apellido"] ?>
+                                        </th>
+                                        <th class="text-sm text-gray-500">
+                                            <?= $row["Correo"] ?>
+                                        </th>
+
+                                     
 
 
                                         <th>
-                                            <a href="/views_Admin/edit_Clases.php?id=<?= $row['id_materia'] ?>">
+                                            <a href="/views_Admin/edit_Maestros.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>
                                             </a>
 
-                                            <a href="../handle_db/delete_Clasesdb.php?id=<?= $row['id_ud'] ?>">
+                                            <a href="../handle_db/delete_maestros.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
                                                 </button>
