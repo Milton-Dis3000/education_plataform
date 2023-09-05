@@ -132,7 +132,7 @@
 
             <div class="p-3 flex justify-between items-center">
                 <h2 class="text-lg font-semibold">Información de Clase</h2>
-                <a href="/views_Admin/register_Maestros.php?id=">
+                <a href="/views_Admin/register_Clases.php?id=">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
                         Agregar Clase
                     </button>
@@ -159,9 +159,6 @@
                             <?php
 
                             require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
-
-                            // SELECT * FROM maestro_materia
-                            // INNER JOIN materias ON maestro_materia.maestro_id  = materias.id_materia 
 
                             $query = "SELECT * FROM usuarios_datos 
                             INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
@@ -199,7 +196,7 @@
                                                 </button>
                                             </a>
 
-                                            <a href="../handle_db/delete_Clasesdb.php?id=<?= $row['id_ud'] ?>">
+                                            <a href="../handle_db/delete_clases.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
                                                 </button>
@@ -210,7 +207,7 @@
 
                                     </tr>
                             <?php
-                                    $rowNumber++; // Incrementar el contador
+                                    $rowNumber++; 
                                 }
                             } else {
                                 echo "Error en la consulta.";

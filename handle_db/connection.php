@@ -3,7 +3,7 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "uni";
+$dbname = "db_universidad";
 $dsn = "mysql:host=$hostname;dbname=$dbname";
 // echo "Connected";
 

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Iniciar la sesión
+session_start();
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_POST["pass"])) {
@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_
 
     // Realizar la consulta SQL para verificar las credenciales
     require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
+
+    $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
     $query = "SELECT * FROM usuarios_datos WHERE Correo = :correo AND Contra = :pass";
     $stmt = $pdo->prepare($query);
@@ -35,10 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_
                 header("Location: ../views_Admin/Alumnos/alumno.php");
                 break;
             default:
-                // Manejar un rol no reconocido o mostrar un mensaje de error.
                 break;
         }
-        exit(); 
+        exit();
     } else {
         header("Location: ../index.php");
         exit();
