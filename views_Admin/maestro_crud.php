@@ -161,21 +161,21 @@
                         <tbody>
 
                             <?php
-
                             require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
 
-                            $query = "SELECT * FROM usuarios_datos 
-                            INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
-                            INNER JOIN materias ON usuarios_datos.materia_id = materias.id_materia
+                            $query = "SELECT usuarios_datos.*, roles.nombre_rol, materias.nombre_materia
+                            FROM usuarios_datos
+                            LEFT JOIN roles ON usuarios_datos.rol_id = roles.id_rol
+                            LEFT JOIN materias ON usuarios_datos.materia_id = materias.id_materia
                             WHERE usuarios_datos.rol_id = 2";
                             $stmt = $pdo->query($query);
-
 
                             if ($stmt) {
                                 $rowNumber = 1; // Inicializar el contador
 
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    // var_dump($row);
+                                    // Verificar si la materia es NULL y mostrar "Sin asignar" en ese caso
+                                    $materiaNombre = ($row["nombre_materia"]) ? $row["nombre_materia"] : "Sin asignar";
                             ?>
                                     <tr>
                                         <th class="text-sm text-gray-500">
@@ -184,42 +184,33 @@
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Nombre"] ?>
                                         </th>
-
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Apellido"] ?>
                                         </th>
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Correo"] ?>
                                         </th>
-
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Direccion"] ?>
                                         </th>
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Fecha_Nacimiento"] ?>
                                         </th>
-
                                         <th>
-                                            <?= $row["nombre_materia"] ?>
+                                            <?= $materiaNombre ?>
                                         </th>
-
-
                                         <th>
                                             <a href="/views_Admin/edit_Maestros.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>
                                             </a>
-
                                             <a href="../handle_db/delete_maestros.php?id=<?= $row['id_ud'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
                                                 </button>
                                             </a>
-
-
                                         </th>
-
                                     </tr>
                             <?php
                                     $rowNumber++; // Incrementar el contador

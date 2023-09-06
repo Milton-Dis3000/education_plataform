@@ -1,24 +1,18 @@
 <?php
 session_start();
 
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_POST["pass"])) {
     $correo = $_POST["correo"];
     $pass = $_POST["pass"];
 
-
-
     // Realizar la consulta SQL para verificar las credenciales
     require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
-
-    $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
     $query = "SELECT * FROM usuarios_datos WHERE Correo = :correo AND Contra = :pass";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":correo", $correo);
     $stmt->bindParam(":pass", $pass);
     $stmt->execute();
-
 
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         // Credenciales válidas, asignar roles y redirigir
@@ -31,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["correo"]) && isset($_
                 header("Location: ../views_Admin/admin.php");
                 break;
             case 2: // Maestro
-                header("Location: ../views_Admin/Maestros/maestro.php");
+                header("Location: ../views_Maestro/maestro.php");
                 break;
             case 3: // Alumno
-                header("Location: ../views_Admin/Alumnos/alumno.php");
+                header("Location: ../views_Alumno/alumno.php");
                 break;
             default:
                 break;

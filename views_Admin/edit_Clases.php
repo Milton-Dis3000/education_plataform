@@ -38,16 +38,16 @@
             <input type="hidden" name="id_materia" value="<?= $_GET["id"] ?>">
 
             <label for="maestros" class="form-label">Maestro Asignado</label>
-            <select class="form-select mb-3 p-1" aria-label="Default select example" name="maestros" required>
+            <select class="form-select mb-3 p-1" aria-label="Default select example" name="maestros">
                 <option value="" disabled>Selecciona un Maestro</option>
                 <?php
                 $query = "SELECT * FROM usuarios_datos WHERE rol_id = 2";
                 $stmt = $pdo->query($query);
-                while ($maestro = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    // Verificar si el maestro es el asignado a la materia
-                    $selected = ($row["nombre_maestro"] == $maestro["Nombre"]) ? "selected" : "";
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
                 ?>
-                    <option value="<?= $maestro["id_ud"] ?>" <?= $selected ?>><?= $maestro["Nombre"] ?></option>
+                    <option value="<?= $row["id_ud"] ?>"><?= $row["Nombre"] ?></option>
+
                 <?php
                 }
                 ?>

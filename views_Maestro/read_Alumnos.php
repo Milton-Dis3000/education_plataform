@@ -45,7 +45,7 @@
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
-                    <form action="/views_Admin/alumno_crud.php" method="post">
+                    <form action="/views_Maestro/read_Alumnos.php" method="post">
                         <button class="text-xl">Alumnos</button>
                     </form>
                 </div>
@@ -61,7 +61,7 @@
             <nav>
                 <div id="isologotipo" class="">
                     <span class="pl-4 pr-4 mr-2 cursor-pointer"><i class="fa-solid fa-bars"></i></span>
-                    <a href="/views_Admin/admin.php">Home</a>
+                    <a href="/views_Maestro/maestro.php">Home</a>
                 </div>
                 <ul>
 
@@ -83,14 +83,14 @@
                             <div id="profile">
                                 <i class="fa-solid fa-circle-user"></i>
 
-                                <a href="profile.php">My profile</a>
+                                <a href="/views_Maestro/profile_maestro.php">My profile</a>
                             </div>
 
                             <hr>
                             <div id="logout">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
 
-                                <a href="../index.php">Logout</a>
+                                <a href="/views_Maestro/maestro.php">Logout</a>
 
                             </div>
                         </div>
@@ -102,24 +102,20 @@
             <div class="pl-4  w-full h-auto flex ">
                 <div class="pr-4flex-grow flex items-center">
 
-                    <button class="text-[#353A40] text-2xl cursor-pointer">Dashboard</button>
+                    <button class="text-[#353A40] text-2xl cursor-pointer">Alumnos de la Clase de Ciencias</button>
 
                 </div>
 
                 <div class="pl-4 pr-4 ml-auto">
-                    <a href="/views_Admin/admin.php" class="underline hover:no-underline">Home</a>
-                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Maestros</a>
+                    <a href="/views_Maestro/maestro.php" class="underline hover:no-underline">Home</a>
+                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Ciencias</a>
                 </div>
             </div>
 
 
             <div class="p-3 flex justify-between items-center">
-                <h2 class="text-lg font-semibold">Información de Maestros</h2>
-                <a href="/views_Admin/register_Maestros.php?id=">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
-                        Agregar Maestro
-                    </button>
-                </a>
+                <h2 class="text-lg font-semibold">Alumnos de la Clase de Ciencias</h2>
+              
             </div>
 
 

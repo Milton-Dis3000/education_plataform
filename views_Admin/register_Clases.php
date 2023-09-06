@@ -17,31 +17,37 @@
             <a href="javascript:history.back()" class="text-gray-600 text-lg"><i class="fas fa-times mr-1"></i></a>
         </div>
 
-        <form method="post" action="ruta_a_tu_script_php.php" class="p-1">
+        <form method="post" action="../handle_db/register_Clasesdb.php" class="p-1">
             <div class="p-1">
                 <label for="nombre_materia" class="form-label">Nombre de la Materia</label>
                 <input type="text" id="nombre_materia" class="form-control p-2" name="nombre_materia" required>
             </div>
 
             <label for="maestros" class="form-label">Maestro Asignado</label>
-            <select class="form-select mb-3 p-1" aria-label="Default select example" name="maestros" required>
+            <select class="form-select mb-3 p-1" aria-label="Default select example" name="maestros">
                 <option value="" disabled>Selecciona un Maestro</option>
                 <?php
-                // Consulta para obtener la lista de maestros
+                require_once("../handle_db/connection.php");
+
                 $query = "SELECT * FROM usuarios_datos WHERE rol_id = 2";
                 $stmt = $pdo->query($query);
-                while ($maestro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                   
+
                 ?>
-                    <option value="<?= $maestro["id_ud"] ?>"><?= $maestro["Nombre"] ?></option>
+                    <option value="<?= $row["id_ud"] ?>"><?= $row["Nombre"] ?></option>
+
                 <?php
                 }
                 ?>
             </select>
+            
             <div class="flex justify-end pt-3">
                 <a href="maestro_crud.php" class="btn btn-gray p-2 mr-2">Close</a>
                 <button type="submit" class="btn btn-primary p-2">Registrar</button>
             </div>
-         
+
+
         </form>
     </main>
 </body>

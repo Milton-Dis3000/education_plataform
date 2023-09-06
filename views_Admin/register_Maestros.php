@@ -20,32 +20,32 @@
         <form method="post" action="../handle_db/register_Maestrosdb.php" class="p-1">
             <div class="p-1">
                 <label for="nombre" class="form-label">Nombre(s)</label>
-                <input type="text" class="form-control p-1" name="nombre" id="nombre" required>
+                <input type="text" class="form-control p-1" name="nombre" id="nombre" >
             </div>
 
             <div class="p-1">
                 <label for="apellido" class="form-label">Apellido(s)</label>
-                <input type="text" class="form-control p-1" name="apellido" id="apellido" required>
+                <input type="text" class="form-control p-1" name="apellido" id="apellido" >
             </div>
 
             <div class="p-1">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control p-1" name="email" id="email" required>
+                <input type="email" class="form-control p-1" name="email" id="email" >
             </div>
 
             <div class="p-2">
                 <label for="direccion" class="form-label">Dirección</label>
-                <input type="text" class="form-control p-1" name="direccion" id="direccion" required>
+                <input type="text" class="form-control p-1" name="direccion" id="direccion" >
             </div>
 
             <div class="p-1">
                 <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-                <input type="date" class="form-control p-2" name="fecha_nacimiento" id="fecha_nacimiento" required>
+                <input type="date" class="form-control p-2" name="fecha_nacimiento" id="fecha_nacimiento" >
             </div>
 
             <div class="p-1">
                 <label for="materias" class="form-label">Clase Asignada</label>
-                <select class="form-select p-1" aria-label="Default select example" name="materias" id="materias" required>
+                <select class="form-select p-1" aria-label="Default select example" name="materias" id="materias" >
                     <option value="" selected disabled>Seleccionar Clase Asignada</option>
                     <?php
                     require_once("../handle_db/connection.php");

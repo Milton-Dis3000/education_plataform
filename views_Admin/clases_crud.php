@@ -132,7 +132,7 @@
 
             <div class="p-3 flex justify-between items-center">
                 <h2 class="text-lg font-semibold">Información de Clase</h2>
-                <a href="/views_Admin/register_Clases.php?id=">
+                <a href="/views_Admin/register_Clases.php">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-1 px-1 rounded">
                         Agregar Clase
                     </button>
@@ -186,8 +186,6 @@
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Nombre"] ?>
                                         </th>
-
-
 
                                         <th>
                                             <a href="/views_Admin/edit_Clases.php?id=<?= $row['id_materia'] ?>">

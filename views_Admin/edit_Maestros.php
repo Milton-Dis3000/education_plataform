@@ -60,7 +60,7 @@
 
             <input type="hidden" name="id_ud" value="<?= $_GET["id"] ?>">
 
-            <select class="form-select mb-3 p-1" aria-label="Default select example" name="materias" required>
+            <select class="form-select mb-3 p-1" aria-label="Default select example" name="materias">
                 <option value="" selected disabled>Clase Asignada</option>
                 <?php
                 $query = "SELECT * FROM materias";

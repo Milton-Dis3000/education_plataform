@@ -125,7 +125,7 @@
 
                 <div class="pl-4 pr-4 ml-auto">
                     <a href="/views_Admin/admin.php" class="underline hover:no-underline">Home</a>
-                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Maestros</a>
+                    <a href="/views_Admin/maestro_crud.php" class="underline hover:no-underline">Alumnos</a>
                 </div>
             </div>
 
