@@ -41,7 +41,7 @@
             <div class="p-4 mb-4 flex flex-col ">
                 <h2 class="text-lg">MENU MAESTROS</h2>
 
-         
+
 
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
                     <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
@@ -50,7 +50,7 @@
                     </form>
                 </div>
 
-              
+
 
             </div>
         </section>
@@ -66,7 +66,7 @@
                 <ul>
 
                     <div id="toggleContainer">
-                        <p>Administrador</p>
+                        <p>Maestro</p>
 
                         <div id="toggleIcons">
 
@@ -115,7 +115,7 @@
 
             <div class="p-3 flex justify-between items-center">
                 <h2 class="text-lg font-semibold">Alumnos de la Clase de Ciencias</h2>
-              
+
             </div>
 
 
@@ -139,11 +139,12 @@
                             <?php
 
                             require_once($_SERVER["DOCUMENT_ROOT"] . "/handle_db/connection.php");
-
-                            $query = "SELECT * FROM usuarios_datos 
+                            $query = "SELECT * 
+                            FROM usuarios_datos 
                             INNER JOIN roles ON usuarios_datos.rol_id = roles.id_rol
-                            INNER JOIN materias ON usuarios_datos.materia_id = materias.id_materia
-                            WHERE usuarios_datos.rol_id = 2";
+                            INNER JOIN maestro_materia ON maestro_materia.maestro_id = usuarios_datos.id_ud
+                            INNER JOIN materias ON maestro_materia.materia_id = materias.id_materia
+                            WHERE usuarios_datos.rol_id = 3";
                             $stmt = $pdo->query($query);
 
 
@@ -157,35 +158,29 @@
                                         <th class="text-sm text-gray-500">
                                             <?= $rowNumber ?>
                                         </th>
+
                                         <th class="text-sm text-gray-500">
                                             <?= $row["Nombre"] ?>
                                         </th>
 
                                         <th class="text-sm text-gray-500">
-                                            <?= $row["Apellido"] ?>
+                                            <?= $row["calificacion"] ?>
                                         </th>
+
                                         <th class="text-sm text-gray-500">
-                                            <?= $row["Correo"] ?>
+                                            <?= $row["mensaje"] ?>
                                         </th>
-
-                                     
-
 
                                         <th>
-                                            <a href="/views_Admin/edit_Maestros.php?id=<?= $row['id_ud'] ?>">
+                                            <a href="/views_Maestro/edit_Calif.php ?id=<?= $row['id_mm'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>
                                             </a>
-
-                                            <a href="../handle_db/delete_maestros.php?id=<?= $row['id_ud'] ?>">
-                                                <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
-                                                    <i class="fa-solid fa-trash-can text-red-500 hover:text-red-600"></i>
-                                                </button>
-                                            </a>
-
-
+                                         
                                         </th>
+
+
 
                                     </tr>
                             <?php

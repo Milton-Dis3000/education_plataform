@@ -20,7 +20,7 @@ session_start();
     <link rel="stylesheet" href="/css/style.css">
 
 
-    <title>Profile</title>
+    <title>Profile Alumno</title>
 
 </head>
 
@@ -37,24 +37,21 @@ session_start();
 
             <div class="p-4 mb-4">
                 <div class="flex flex-col border-b border-gray-600 pb-2">
-                    <h2 class="text-xl">Maestro</h2>
-                    <h2 class="text-xl">Maestro</h2>
+                    <h2 class="text-xl">Alumno</h2>
+                    <h2 class="text-xl">Alumno</h2>
                 </div>
             </div>
 
             <div class="p-4 mb-4 flex flex-col ">
-                <h2 class="text-lg">MENU MAESTROS</h2>
+                <h2 class="text-lg">MENU ALUMNO</h2>
 
-
-
+              
                 <div class="flex flex-row items-center border-b border-gray-600 pb-2 cursor-pointer hover:bg-gray-100">
-                    <span class="cursor-pointer"><i class="fa-solid fa-graduation-cap mr-2"></i></span>
-                    <form action="/views_Maestro/profile_maestro.php" method="post">
-                        <button class="text-xl">Alumnos</button>
+                    <span class="cursor-pointer"><i class="fa-brands fa-stack-overflow"></i></span>
+                    <form action="/views_Alumno/class_Admin.php" method="post">
+                        <button class="text-xl">Tus clases</button>
                     </form>
                 </div>
-
-
 
             </div>
         </section>
@@ -65,12 +62,12 @@ session_start();
             <nav>
                 <div id="isologotipo" class="">
                     <span class="pl-4 pr-4 mr-2 cursor-pointer"><i class="fa-solid fa-bars"></i></span>
-                    <a href="/views_Maestro/maestro.php">Home</a>
+                    <a href="/views_Alumno/alumno.php">Home</a>
                 </div>
                 <ul>
 
                     <div id="toggleContainer">
-                        <p>Maestro</p>
+                        <p>Alumno</p>
 
                         <div id="toggleIcons">
 
@@ -87,14 +84,14 @@ session_start();
                             <div id="profile">
                                 <i class="fa-solid fa-circle-user"></i>
 
-                                <a href="profile.php">My profile</a>
+                                <a href="profile_alumno.php">My profile</a>
                             </div>
 
                             <hr>
                             <div id="logout">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
 
-                                <a href="maestro.php">Logout</a>
+                                <a href="alumno.php">Logout</a>
 
                             </div>
                         </div>
@@ -119,7 +116,7 @@ session_start();
                     $usuario_id = $_SESSION['usuario_id'];
 
                     // Asegúrate de que el usuario tenga el rol_id igual a 2 (Maestro)
-                    if ($_SESSION['rol_id'] == 2) {
+                    if ($_SESSION['rol_id'] == 3) {
                         $query = "SELECT * FROM usuarios_datos WHERE id_ud = :usuario_id";
                         $stmt = $pdo->prepare($query);
                         $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
