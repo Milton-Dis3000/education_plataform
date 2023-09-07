@@ -65,7 +65,7 @@
 
             <input type="hidden" name="id_ud" value="<?= $_GET["id"] ?>">
 
-            <!-- <select class="form-select mb-3 p-1" aria-label="Default select example" name="materias" required>
+            <select class="form-select mb-3 p-1" aria-label="Default select example" name="materias">
                 <option value="" selected disabled>Clase Asignada</option>
                 <?php
                 $query = "SELECT * FROM materias";
@@ -77,10 +77,10 @@
                 <?php
                 }
                 ?>
-            </select> -->
+            </select>
 
             <div class="flex justify-end pt-3">
-                <button type="button" class="btn btn-gray p-2 mr-2">Close</button>
+                <button type="button" class="btn btn-gray p-2 mr-2" onclick="javascript:history.back()">Close</button>
                 <button type="submit" class="btn btn-primary p-2">Guardar Cambios</button>
             </div>
         </form>

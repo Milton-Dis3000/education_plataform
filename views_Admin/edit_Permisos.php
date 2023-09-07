@@ -55,7 +55,7 @@
             </select>
 
             <div class="flex justify-end">
-                <button type="button" class="btn btn-gray p-2 mr-2">Close</button>
+                <button type="button" class="btn btn-gray p-2 mr-2" onclick="javascript:history.back()">Close</button>
                 <button type="submit" class="btn btn-primary p-2">Guardar Cambios</button>
             </div>
         </form>
