@@ -171,12 +171,14 @@
                                         </th>
 
                                         <th>
-                                            <a href="/views_Maestro/edit_notes.php ?id=<?= $row['id_mm'] ?>">
+                                            <a href="/views_Maestro/edit_notes.php?id=<?= $row['id_mm'] ?>">
                                                 <button class="text-gray-600 font-bold py-1 px-2 rounded text-xs">
                                                     <i class="far fa-pen-to-square text-blue-500 hover:text-blue-600"></i>
                                                 </button>
                                             </a>
-                                         
+
+                                        
+
                                         </th>
 
 
