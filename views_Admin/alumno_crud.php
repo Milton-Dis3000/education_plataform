@@ -100,7 +100,7 @@
                             <div id="profile">
                                 <i class="fa-solid fa-circle-user"></i>
 
-                                <a href="profile.php">My profile</a>
+                                <a href="admin.php">My profile</a>
                             </div>
 
                             <hr>

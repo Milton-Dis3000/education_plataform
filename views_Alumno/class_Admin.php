@@ -87,7 +87,7 @@
                             <div id="logout">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
 
-                                <a href="/views_Alumno/alumno.php">Logout</a>
+                                <a href="../index.php">Logout</a>
 
                             </div>
                         </div>
