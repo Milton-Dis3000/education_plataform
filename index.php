@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <main class="bg-[#FFF5D2] h-screen flex flex-col justify-center items-center">
         <div class="flex flex-col items-center">
             <img src="img/login.png" alt="" class="self-center w-40 h-40 mb-4">

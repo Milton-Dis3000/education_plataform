@@ -62,7 +62,7 @@
                 <ul>
 
                     <div id="toggleContainer">
-                        <p>Administrador</p>
+                        <p>Alumno</p>
 
                         <div id="toggleIcons">
 
